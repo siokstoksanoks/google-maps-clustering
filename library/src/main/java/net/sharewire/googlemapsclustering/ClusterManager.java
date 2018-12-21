@@ -7,6 +7,7 @@ import android.support.annotation.Nullable;
 
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.model.LatLngBounds;
+import com.google.android.gms.maps.model.Marker;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -57,7 +58,7 @@ public class ClusterManager<T extends ClusterItem> implements GoogleMap.OnCamera
          * <code>false</code> otherwise (i.e., the default behavior should occur). The default behavior is for the camera
          * to move to the marker and an info window to appear.
          */
-        boolean onClusterClick(@NonNull Cluster<T> cluster);
+        boolean onClusterClick(Marker marker, @NonNull Cluster<T> cluster);
 
         /**
          * Called when a marker representing a cluster item has been clicked.
@@ -67,7 +68,7 @@ public class ClusterManager<T extends ClusterItem> implements GoogleMap.OnCamera
          * <code>false</code> otherwise (i.e., the default behavior should occur). The default behavior is for the camera
          * to move to the marker and an info window to appear.
          */
-        boolean onClusterItemClick(@NonNull T clusterItem);
+        boolean onClusterItemClick(Marker marker, @NonNull T clusterItem);
     }
 
     /**

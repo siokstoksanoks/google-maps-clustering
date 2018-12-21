@@ -11,6 +11,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
+import com.google.android.gms.maps.model.Marker;
 
 import net.sharewire.googlemapsclustering.Cluster;
 import net.sharewire.googlemapsclustering.ClusterManager;
@@ -46,13 +47,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         ClusterManager<SampleClusterItem> clusterManager = new ClusterManager<>(this, googleMap);
         clusterManager.setCallbacks(new ClusterManager.Callbacks<SampleClusterItem>() {
             @Override
-            public boolean onClusterClick(@NonNull Cluster<SampleClusterItem> cluster) {
+            public boolean onClusterClick(Marker maker, @NonNull Cluster<SampleClusterItem> cluster) {
                 Log.d(TAG, "onClusterClick");
                 return false;
             }
 
             @Override
-            public boolean onClusterItemClick(@NonNull SampleClusterItem clusterItem) {
+            public boolean onClusterItemClick(Marker maker, @NonNull SampleClusterItem clusterItem) {
                 Log.d(TAG, "onClusterItemClick");
                 return false;
             }

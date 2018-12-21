@@ -55,9 +55,9 @@ class ClusterRenderer<T extends ClusterItem> implements GoogleMap.OnMarkerClickL
 
             if (mCallbacks != null) {
                 if (clusterItems.size() > 1) {
-                    return mCallbacks.onClusterClick(cluster);
+                    return mCallbacks.onClusterClick(marker, cluster);
                 } else {
-                    return mCallbacks.onClusterItemClick(clusterItems.get(0));
+                    return mCallbacks.onClusterItemClick(marker, clusterItems.get(0));
                 }
             }
         }
