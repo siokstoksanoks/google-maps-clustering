@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Google Maps Clustering Sample</string>
+    <string name="google_maps_key">1234567890</string>
+</resources>
