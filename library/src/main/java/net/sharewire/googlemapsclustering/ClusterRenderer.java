@@ -103,7 +103,7 @@ class ClusterRenderer<T extends ClusterItem> implements GoogleMap.OnMarkerClickL
                 animateMarkerToLocation(markerToRemove, new LatLng(parentCluster.getLatitude(),
                         parentCluster.getLongitude()), true);
             } else {
-                markerToRemove.remove();
+                removeMarker(markerToRemove);
             }
 
             mMarkers.remove(clusterToRemove);
@@ -141,6 +141,18 @@ class ClusterRenderer<T extends ClusterItem> implements GoogleMap.OnMarkerClickL
             markerToAdd.setTag(clusterToAdd);
 
             mMarkers.put(clusterToAdd, markerToAdd);
+        }
+    }
+
+    void removeMarker(Marker marker) {
+        if (null == marker) {
+            return;
+        }
+
+        try {
+            marker.remove();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -199,7 +211,7 @@ class ClusterRenderer<T extends ClusterItem> implements GoogleMap.OnMarkerClickL
             @Override
             public void onAnimationEnd(Animator animation) {
                 if (removeAfter) {
-                    marker.remove();
+                    removeMarker(marker);
                 }
             }
         });
