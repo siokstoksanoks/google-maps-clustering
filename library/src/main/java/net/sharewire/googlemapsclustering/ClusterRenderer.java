@@ -150,6 +150,7 @@ class ClusterRenderer<T extends ClusterItem> implements GoogleMap.OnMarkerClickL
         }
 
         try {
+            marker.setIcon(null);
             marker.remove();
         } catch (Exception e) {
             e.printStackTrace();
